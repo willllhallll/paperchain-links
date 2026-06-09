@@ -9,8 +9,9 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
-		"moduleResolution": "bundler"
+		"moduleResolution": "bundler",
+		"types": [
+			"./worker-configuration.d.ts"
+		]
 	}
-	// Path aliases ($lib, etc.) and most other options are handled by the
-	// generated .svelte-kit/tsconfig.json that this file extends.
 }
