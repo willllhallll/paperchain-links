@@ -10,7 +10,8 @@
 	h1 {
 		text-align: center;
 		margin: 0;
-		font-size: 3rem;
+		font-size: 3.8rem;
+		line-height: 0.9;
 		font-family: More Sugar, serif;
 		letter-spacing: 0rem;
 		color: hsl(var(--red-h) var(--red-s) var(--l-text));
