@@ -1,0 +1,23 @@
+:root {
+  /* Brand hues + saturations — the only two hue/sat pairs in the site */
+  --red-h: 354deg;
+  --red-s: 72%;
+  --pink-h: 318deg;
+  --pink-s: 63%;
+
+  /* Shared lightness scale (used across both hues) */
+  --l-text: 15%; /* dark text */
+  --l-dull: 30%; /* dull stripe */
+  --l-bold: 56%; /* bold stripe */
+  --l-soft: 84%; /* soft stripe */
+  --l-tint: 90%; /* borders, button fills, glow */
+  --l-faint: 95%; /* container backdrop (currently transparent) */
+}
+
+@font-face {
+  font-family: "More Sugar";
+  src: url("/fonts/moresugar.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
