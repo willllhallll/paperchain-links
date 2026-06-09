@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "svelte-kit sync && vite dev --host",
-    "build": "wrangler types --check && svelte-kit sync && vite build",
+    "build": "wrangler types && svelte-kit sync && vite build",
     "preview": "npm run build && wrangler dev",
-    "check": "wrangler types && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check": "wrangler types --check && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "gen": "wrangler types",
     "deploy": "npm run build && wrangler deploy",
