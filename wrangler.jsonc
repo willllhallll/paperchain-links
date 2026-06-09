@@ -1,0 +1,11 @@
+{
+  "name": "shorten-url-worker",
+  "compatibility_date": "2026-06-09",
+  "main": "build/index.html",
+  "routes": [
+    {
+      "pattern": "links.paperchaincollective.uk",
+      "custom_domain": true,
+    },
+  ],
+}
