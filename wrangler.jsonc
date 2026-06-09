@@ -1,7 +1,12 @@
 {
   "name": "shorten-url-worker",
   "compatibility_date": "2026-06-09",
-  "main": "build/index.html",
+  "compatibility_flags": ["nodejs_als"],
+  "main": ".svelte-kit/cloudflare/_worker.js",
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".svelte-kit/cloudflare",
+  },
   "routes": [
     {
       "pattern": "links.paperchaincollective.uk",
