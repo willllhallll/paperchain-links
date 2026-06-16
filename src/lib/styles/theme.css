@@ -1,0 +1,74 @@
+/* =============================================================================
+ * Paperchain design system — style book
+ * -----------------------------------------------------------------------------
+ * Portable token set + custom utilities shared across Paperchain projects.
+ * This file is intentionally self-contained so it can later be lifted into a
+ * shared `@paperchain` package without restructuring the consuming app.
+ *
+ * Colour model: two brand hues (red, pink) sampled at a single semantic
+ * lightness scale. The hue/saturation/lightness primitives are kept as plain
+ * custom properties so the palette stays editable from one place; the `@theme`
+ * block composes them into Tailwind colour tokens that generate utilities
+ * (text-*, bg-*, border-*, …).
+ * ========================================================================== */
+
+:root {
+  /* Brand hues + saturations — the only two hue/sat pairs in the system. */
+  --red-h: 354deg;
+  --red-s: 72%;
+  --pink-h: 318deg;
+  --pink-s: 63%;
+
+  /* Shared lightness scale (applied across both hues). */
+  --l-text: 15%; /* dark text */
+  --l-dull: 30%; /* dull accent / badge */
+  --l-bold: 56%; /* bold stripe */
+  --l-soft: 84%; /* soft stripe */
+  --l-tint: 90%; /* borders, button fills, glow */
+  --l-faint: 95%; /* faint glow / backdrop */
+}
+
+@theme {
+  /* Display typeface (registered via @font-face in app.css). */
+  --font-display: "More Sugar", serif;
+
+  /* Tight display leading for the logo. */
+  --leading-logo: 0.9;
+
+  /* Brand stripe width (normalised from the original 40px). */
+  --spacing-stripe: 2.5rem;
+
+  /* Brand palette — full two-hue × six-step scale. */
+  --color-red-text:  hsl(var(--red-h) var(--red-s) var(--l-text));
+  --color-red-dull:  hsl(var(--red-h) var(--red-s) var(--l-dull));
+  --color-red-bold:  hsl(var(--red-h) var(--red-s) var(--l-bold));
+  --color-red-soft:  hsl(var(--red-h) var(--red-s) var(--l-soft));
+  --color-red-tint:  hsl(var(--red-h) var(--red-s) var(--l-tint));
+  --color-red-faint: hsl(var(--red-h) var(--red-s) var(--l-faint));
+
+  --color-pink-text:  hsl(var(--pink-h) var(--pink-s) var(--l-text));
+  --color-pink-dull:  hsl(var(--pink-h) var(--pink-s) var(--l-dull));
+  --color-pink-bold:  hsl(var(--pink-h) var(--pink-s) var(--l-bold));
+  --color-pink-soft:  hsl(var(--pink-h) var(--pink-s) var(--l-soft));
+  --color-pink-tint:  hsl(var(--pink-h) var(--pink-s) var(--l-tint));
+  --color-pink-faint: hsl(var(--pink-h) var(--pink-s) var(--l-faint));
+}
+
+/* Full-page vertical brand stripes from a single repeating gradient. */
+@utility bg-stripes {
+  background: repeating-linear-gradient(
+    to right,
+    var(--color-red-bold) 0,
+    var(--color-red-bold) var(--spacing-stripe),
+    var(--color-pink-soft) var(--spacing-stripe),
+    var(--color-pink-soft) calc(var(--spacing-stripe) * 2)
+  );
+}
+
+/* Layered drop-shadow glow for display text (logo). */
+@utility text-glow {
+  filter:
+    drop-shadow(0 0 2px var(--color-red-faint))
+    drop-shadow(0 0 5px var(--color-red-tint))
+    drop-shadow(0 0 10px var(--color-red-soft));
+}

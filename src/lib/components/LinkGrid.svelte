@@ -6,19 +6,9 @@
 	let { links }: { links: SiteLink[] } = $props();
 </script>
 
-<div class="grid">
+<!-- Layout only: a single centered column of buttons. -->
+<div class="grid w-4/5 grid-cols-1 justify-items-center gap-5">
 	{#each links as link}
 		<LinkButton title={link.title} url={link.url} highlight={link.highlight} />
 	{/each}
 </div>
-
-<style>
-	/* Layout only (no decoration): a single centered column of buttons. */
-	.grid {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: 1.2rem;
-		justify-items: center;
-		width: 80%;
-	}
-</style>

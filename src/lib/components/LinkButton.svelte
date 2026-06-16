@@ -6,42 +6,14 @@
 	let { title, url, highlight = false }: SiteLink = $props();
 </script>
 
-<a href={url}>
+<a
+	href={url}
+	class="relative m-0 w-full rounded-lg border border-red-faint bg-pink-tint/80 py-4 text-center text-base uppercase no-underline backdrop-blur-sm font-display text-red-text hover:bg-pink-tint"
+>
 	{title}
-	{#if highlight}<div class="exclaim">{highlight}</div>{/if}
+	{#if highlight}
+		<div class="absolute right-0 top-0 translate-x-1/2 -translate-y-[40%] text-2xl text-red-dull">
+			{highlight}
+		</div>
+	{/if}
 </a>
-
-
-<style>
-	/* Keep wrapped logo lines centered rather than aligned to the start. */
-	a {
-		text-align: center;
-		margin: 0;
-		font-size: 1rem;
-		text-transform: uppercase;
-		font-family: More Sugar, serif;
-		text-decoration: none;
-		color: hsl(var(--red-h) var(--red-s) var(--l-text));
-		border: 0.1rem solid hsl(var(--red-h) var(--red-s) var(--l-faint));
-		width: 100%;
-		padding: 1rem 0rem;
-		border-radius: 0.6rem;
-		background: hsl(var(--pink-h) var(--pink-s) var(--l-tint) / 0.8);
-		backdrop-filter: blur(6px);
-	}
-
-	a:hover {
-		background: hsl(var(--pink-h) var(--pink-s) var(--l-tint) / 1);
-	}
-
-
-	.exclaim {
-		position: absolute;
-		top: 0;
-		right: 0;
-		transform: translate(50%, -40%);
-		font-size: 1.5rem;
-		color: hsl(var(--red-h) var(--red-s) var(--l-dull));
-	}
-
-</style>

@@ -6,21 +6,7 @@
 	let { children }: { children?: Snippet } = $props();
 </script>
 
-<div class="container">
+<!-- A fixed-width (~22rem), horizontally centered column for the primary content. -->
+<div class="grid w-88 max-w-full justify-items-center gap-6 py-6 rounded-xl">
 	{@render children?.()}
 </div>
-
-<style>
-	/* Layout only: a 300px-wide centered column for the primary content. */
-	.container {
-		width: 350px;
-		max-width: 100%;
-		display: grid;
-		justify-items: center;
-		gap: 1.5rem;
-		padding: 1.5rem 0rem;
-		background: hsl(var(--pink-h) var(--pink-s) var(--l-faint) / 0);
-		border-radius: 0.8rem;
-		
-	}
-</style>
